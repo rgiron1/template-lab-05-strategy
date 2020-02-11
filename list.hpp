@@ -10,7 +10,7 @@ sort_function = s;
 }
 
 virtual void sort(){
-sort_function->sort(l);
+sort_function->sort(&l);
 }
 
 virtual Base* at(int i){
