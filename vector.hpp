@@ -1,35 +1,33 @@
 #ifndef __VECTOR_HPP__
 #define __VECTOR_HPP__
 #include "container.hpp"
+#include <vector>
+#include <iostream>
 using namespace std;
 
 
-class Vector : public Conainter{
+class Vector : public Container{
 private:
-	vector<Base*> Vec;
+	vector<Base*> vec;
 public:
 
-	void set_sort_function(Sort* s){
-	sort_function = s;
-	}
-
         virtual void add_element(Base* element) {
-	vec.pushback(element);
+	vec.push_back(element);
 	}
 
-        virtual void print() = {
+        virtual void print() {
 	for(int i = 0; i < vec.size(); i++){
 	cout << vec.at(i)->stringify();
 	}
 	}
 
         virtual void sort() {
-	sort_function->sort(&vec);
+	sort_function->sort(this);
 
 	}
 
 	virtual void swap(int i, int j) {
-	temp = vec.at(i);
+	Base* temp = vec.at(i);
 	vec.at(i) = vec.at(j);
 	vec.at(j) = temp;
 	}
@@ -49,5 +47,5 @@ public:
 
 
 
-}
+};
 #endif
