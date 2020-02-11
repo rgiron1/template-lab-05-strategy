@@ -9,7 +9,7 @@ class BubbleSort {
     public:
 
         /* Pure Virtual Functions */
-        virtual void sort(Container* container){
+        virtual void sort(Container* num){
 	int i, j, flag = 1;    // set flag to 1 to start first pass
       int temp;             // holding variable
       int numLength = num.size(); 
