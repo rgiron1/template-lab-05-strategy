@@ -1,7 +1,9 @@
 #ifndef __LIST_HPP__
 #define __LIST_HPP__
 #include <list>
-using namespace;
+#include <iostream>
+using namespace std;
+
 
 class List : public Container{
 
@@ -10,11 +12,7 @@ sort_function = s;
 }
 
 virtual void sort(){
-sort_function->sort(&l);
-}
-
-virtual Base* at(int i){
-return l[i];
+sort_function->sort(this);
 }
 
 virtual void print(){
@@ -28,9 +26,24 @@ return l.size();
 }
 
 virtual void swap(int i, int j){
-Base * temp = l[i];
-l[i] = l[j];
-l[j] = temp;
+
+list<Base *>::iterator t1 = l.begin();
+list<Base *>::iterator t2 = l.begin();
+
+std::advance(t1, i);
+std::advance(t2, j);
+
+Base * temp = *t1;
+*t1 = *t2;
+*t2 = temp;
+
+}
+
+virtual Base* at(int i){
+list<Base *>::iterator it = l.begin();
+
+std::advance(it, i);
+return *it;
 }
 
 virtual void add_element(Base* element){
