@@ -4,10 +4,10 @@
 
 class Op : public Base{
 public:
-	Op(double value) : Base() {val = value}
+	Op(double value) : Base() {val = value;}
 	virtual double evaluate() { return val;}
 	virtual std::string stringify() {return std::to_string(val);}
 private:
  double val;
-
+};
 #endif
